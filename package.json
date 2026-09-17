@@ -1,0 +1,17 @@
+{
+  "name": "visionchat",
+  "version": "1.0.0",
+  "description": "Conversational Image Recognition Chatbot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "latest",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "socket.io": "^4.8.3"
+  }
+}

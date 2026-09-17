@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS-AI | Advanced Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    <div class="background-animation"></div>
+    <div class="scanline"></div>
+    <div class="chat-container">
+        <header class="chat-header">
+            <div class="logo-container">
+                <div class="glowing-orb">
+                    <div class="orb-core"></div>
+                </div>
+                <h1>NEXUS<span>.AI</span></h1>
+            </div>
+            <p class="subtitle">SYSTEM STATUS: <span class="status-online">ONLINE</span> <span class="separator">//</span> UPLINK ACTIVE</p>
+        </header>
+
+        <main class="chat-history" id="chatHistory">
+            <div class="message bot">
+                <div class="avatar">NX</div>
+                <div class="message-content">
+                    <p>Uplink established. I am NEXUS, an advanced multimodal intelligence node. I am equipped to process text directives, analyze visual data feeds, and synthesize responses. State your query.</p>
+                </div>
+            </div>
+        </main>
+
+        <div class="image-preview-container" id="imagePreviewContainer" style="display: none;">
+            <img id="imagePreview" src="" alt="Image Preview">
+            <button id="removeImageBtn" class="remove-btn">&times;</button>
+        </div>
+
+        <div id="loadingToast" class="loading-toast">
+            <div class="toast-spinner"></div>
+            <p>Analyzing deeply... please wait a moment</p>
+        </div>
+
+        <footer class="chat-input-area">
+            <label for="imageInput" class="upload-btn" title="Upload Image">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            </label>
+            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+
+            <button id="openCameraBtn" class="upload-btn" title="Take Photo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </button>
+            
+            <input type="text" id="messageInput" placeholder="Type a message or ask about an image..." autocomplete="off">
+            
+            <button id="sendBtn" class="send-btn" title="Send Message">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+        </footer>
+    </div>
+
+    <!-- Camera Modal Overlay -->
+    <div class="camera-modal" id="cameraModal" style="display: none;">
+        <div class="camera-content">
+            <video id="cameraVideo" autoplay playsinline></video>
+            <canvas id="cameraCanvas" style="display: none;"></canvas>
+            <div class="camera-controls">
+                <button id="captureBtn" class="camera-btn capture" title="Take Photo">
+                    <div class="capture-inner"></div>
+                </button>
+                <button id="closeCameraBtn" class="camera-btn close" title="Close Camera">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Socket.IO client from CDN -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Include Marked.js for parsing Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
